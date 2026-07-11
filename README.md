@@ -14,10 +14,8 @@
 ---
 
 ## 🚀 Live Demo
-https://portfolio-syrine-ben-anayas-projects.vercel.app/
 
-
----
+https://portfolio-syrine-ben-anaya.vercel.app/
 
 ## 📖 Overview
 
