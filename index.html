@@ -27,6 +27,7 @@
             --accent-gradient: linear-gradient(135deg, #b8a0c9, #d4b8d9);
             --navbar-bg: rgba(255, 255, 255, 0.85);
             --footer-border: #e0dcd6;
+            --footer-bg: #2c2a2a;          /* fond du footer en mode clair */
         }
 
         [data-theme="dark"] {
@@ -41,6 +42,7 @@
             --accent-gradient: linear-gradient(135deg, #9b86b0, #c7add4);
             --navbar-bg: rgba(20, 18, 24, 0.9);
             --footer-border: #3a3540;
+            --footer-bg: #141218;
         }
 
         /* ====================================================
@@ -72,10 +74,6 @@
             color: var(--text-secondary) !important;
         }
 
-        .bg-dark {
-            background-color: var(--bg-color) !important;
-        }
-
         .bg-light-dark {
             background-color: var(--bg-light);
         }
@@ -94,7 +92,7 @@
         }
 
         /* ====================================================
-           NAVBAR (avec shrink)
+           NAVBAR
            ==================================================== */
         .glass-navbar {
             background: var(--navbar-bg) !important;
@@ -388,6 +386,15 @@
         }
 
         /* ====================================================
+           FOOTER (correction : couleur visible)
+           ==================================================== */
+        .footer-custom {
+            background-color: var(--footer-bg);
+            border-color: var(--footer-border) !important;
+            color: #f0edf2;
+        }
+
+        /* ====================================================
            RTL
            ==================================================== */
         html[dir="rtl"] {
@@ -400,13 +407,6 @@
         html[dir="rtl"] .dropdown-menu-end {
             right: auto;
             left: 0;
-        }
-
-        /* ====================================================
-           FOOTER
-           ==================================================== */
-        footer {
-            border-color: var(--footer-border) !important;
         }
 
         /* ====================================================
@@ -747,8 +747,8 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-dark text-white text-center py-4 border-top">
+    <!-- ===== FOOTER (classe personnalisée pour une couleur visible) ===== -->
+    <footer class="footer-custom text-center py-4 border-top">
         <p class="mb-0">&copy; <span id="year"></span> Syrine BEN ANAYA. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
     </footer>
 
