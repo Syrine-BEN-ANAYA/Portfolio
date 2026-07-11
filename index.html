@@ -669,7 +669,7 @@
         }
         .about-card h4 {
             font-weight: 700;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
             font-size: 1.2rem;
             color: var(--text-primary);
         }
@@ -732,6 +732,61 @@
             line-height: 1.7;
             color: var(--text-secondary);
             text-align: center;
+        }
+
+        /* --- Education items inside about-card --- */
+        .edu-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .edu-item:last-child {
+            border-bottom: none;
+        }
+        .edu-item .edu-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        .edu-item .edu-institution {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .edu-item .edu-institution i {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            width: 1.1rem;
+        }
+        .edu-item .edu-year {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            background: var(--lang-bg);
+            padding: 0.05rem 0.7rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 0.15rem;
+        }
+        [data-theme="dark"] .edu-item .edu-year {
+            background: #2c2438;
+            color: #b3adc0;
+        }
+        .edu-item .edu-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-color);
+            background: var(--lang-bg);
+            padding: 0.05rem 0.65rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+        [data-theme="dark"] .edu-item .edu-badge {
+            background: #2c2438;
         }
 
         /* ====================================================
@@ -925,6 +980,10 @@
         html[dir="rtl"] .about-card ul li .lang-dot {
             margin-left: 0;
             margin-right: 0.6rem;
+        }
+        html[dir="rtl"] .edu-item .edu-badge {
+            margin-left: 0;
+            margin-right: 0.5rem;
         }
 
         /* ====================================================
@@ -1206,21 +1265,32 @@
 
             <!-- Grille : Éducation + Langues -->
             <div class="about-grid">
-                <!-- Éducation -->
+                <!-- Éducation (mise à jour avec les deux diplômes) -->
                 <div class="about-card reveal">
                     <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h4 data-i18n="about_education_title">Education</h4>
-                    <p><strong data-i18n="about_degree_label">Engineering Degree</strong><br />
-                        <span data-i18n="about_degree">Software Engineering</span>
-                    </p>
-                    <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.2rem;">
-                        <i class="fas fa-calendar-alt" style="color:var(--accent-color);"></i>
-                        <span data-i18n="about_degree_year">2026</span>
-                    </p>
-                    <p style="font-size:0.9rem; color:var(--text-secondary);">
-                        <i class="fas fa-map-pin" style="color:var(--accent-color);"></i>
-                        <span data-i18n="about_degree_location">Tunisia</span>
-                    </p>
+
+                    <!-- Engineering Degree -->
+                    <div class="edu-item">
+                        <div class="edu-title" data-i18n="about_degree_eng_title">Engineering Degree</div>
+                        <div class="edu-institution">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="about_degree_eng_inst">Ecole Polytechnique de Sousse</span>
+                        </div>
+                        <span class="edu-year"><i class="far fa-calendar-alt" style="margin-right:0.3rem;"></i> <span data-i18n="about_degree_eng_year">2026</span></span>
+                        <span class="edu-badge" data-i18n="about_degree_eng_badge">Software Engineering</span>
+                    </div>
+
+                    <!-- Bachelor Degree -->
+                    <div class="edu-item">
+                        <div class="edu-title" data-i18n="about_degree_bachelor_title">Bachelor's Degree in English</div>
+                        <div class="edu-institution">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="about_degree_bachelor_inst">Faculty of Arts and Human Sciences Sousse</span>
+                        </div>
+                        <span class="edu-year"><i class="far fa-calendar-alt" style="margin-right:0.3rem;"></i> <span data-i18n="about_degree_bachelor_year">2014</span></span>
+                        <span class="edu-badge" data-i18n="about_degree_bachelor_badge">Bachelor</span>
+                    </div>
                 </div>
 
                 <!-- Langues -->
@@ -1508,10 +1578,16 @@
                 about_title: "About Me",
                 about_desc: "I am a passionate Software Engineer dedicated to building high-quality, scalable, and user-centric applications. With a strong foundation in modern web technologies, I love transforming complex problems into elegant solutions.",
                 about_education_title: "Education",
-                about_degree_label: "Engineering Degree",
-                about_degree: "Software Engineering",
-                about_degree_year: "2026",
-                about_degree_location: "Tunisia",
+                // Engineering Degree
+                about_degree_eng_title: "Engineering Degree",
+                about_degree_eng_inst: "Ecole Polytechnique de Sousse",
+                about_degree_eng_year: "2026",
+                about_degree_eng_badge: "Software Engineering",
+                // Bachelor Degree
+                about_degree_bachelor_title: "Bachelor's Degree in English",
+                about_degree_bachelor_inst: "Faculty of Arts and Human Sciences Sousse",
+                about_degree_bachelor_year: "2014",
+                about_degree_bachelor_badge: "Bachelor",
                 about_languages_title: "Languages",
                 about_lang_ar: "Arabic",
                 about_lang_fr: "French",
@@ -1554,10 +1630,16 @@
                 about_title: "À Propos de Moi",
                 about_desc: "Je suis une ingénieure logiciel passionnée, dédiée à la création d'applications de haute qualité, évolutives et centrées sur l'utilisateur. Avec une solide base dans les technologies web modernes, j'aime transformer des problèmes complexes en solutions élégantes.",
                 about_education_title: "Formation",
-                about_degree_label: "Diplôme d'Ingénieur",
-                about_degree: "Génie Logiciel",
-                about_degree_year: "2026",
-                about_degree_location: "Tunisie",
+                // Engineering Degree
+                about_degree_eng_title: "Diplôme d'Ingénieur",
+                about_degree_eng_inst: "Ecole Polytechnique de Sousse",
+                about_degree_eng_year: "2026",
+                about_degree_eng_badge: "Génie Logiciel",
+                // Bachelor Degree
+                about_degree_bachelor_title: "Licence en Anglais",
+                about_degree_bachelor_inst: "Faculté des Arts et Sciences Humaines de Sousse",
+                about_degree_bachelor_year: "2014",
+                about_degree_bachelor_badge: "Licence",
                 about_languages_title: "Langues",
                 about_lang_ar: "Arabe",
                 about_lang_fr: "Français",
@@ -1600,10 +1682,16 @@
                 about_title: "نبذة عني",
                 about_desc: "أنا مهندسة برمجيات شغوفة ومكرسة لبناء تطبيقات عالية الجودة وقابلة للتطوير تركز على المستخدم. بفضل أساسي القوي في تقنيات الويب الحديثة، أحب تحويل المشاكل المعقدة إلى حلول أنيقة.",
                 about_education_title: "التعليم",
-                about_degree_label: "شهادة مهندس",
-                about_degree: "هندسة البرمجيات",
-                about_degree_year: "٢٠١٩ – ٢٠٢٤",
-                about_degree_location: "تونس",
+                // Engineering Degree
+                about_degree_eng_title: "شهادة مهندس",
+                about_degree_eng_inst: "المدرسة المتعددة التقنيات بسوسة",
+                about_degree_eng_year: "٢٠٢٦",
+                about_degree_eng_badge: "هندسة البرمجيات",
+                // Bachelor Degree
+                about_degree_bachelor_title: "بكالوريوس في اللغة الإنجليزية",
+                about_degree_bachelor_inst: "كلية الآداب والعلوم الإنسانية بسوسة",
+                about_degree_bachelor_year: "٢٠١٤",
+                about_degree_bachelor_badge: "بكالوريوس",
                 about_languages_title: "اللغات",
                 about_lang_ar: "العربية",
                 about_lang_fr: "الفرنسية",
