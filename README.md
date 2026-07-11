@@ -15,8 +15,8 @@
 
 ## 🚀 Live Demo
 
-👉 **[https://portfolio-syrine-ben-anaya.vercel.app/](https://portfolio-syrine-ben-anaya.vercel.app/)**  
-*A fully responsive, interactive personal portfolio with bilingual support and dark/light themes.*
+👉 [**[https://portfolio-syrine-ben-anaya.vercel.app/](https://portfolio-syrine-ben-anaya.vercel.app/)**  
+*A fully responsive, interactive personal portfolio with bilingual support and dark/light themes.*](https://portfolio-syrine-ben-anayas-projects.vercel.app/)
 
 ---
 
