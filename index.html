@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syrine BEN ANAYA - Software Engineer</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+    <!-- Google Fonts (Playfair Display + Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ====================================================
+           VARIABLES (thème clair / sombre)
+           ==================================================== */
+        :root {
+            --bg-color: #f8f6f2;
+            --bg-light: #f0ede8;
+            --text-primary: #2c2a2a;
+            --text-secondary: #5a5a5a;
+            --card-bg: #ffffff;
+            --border-light: rgba(0, 0, 0, 0.06);
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            --accent-color: #a78cbb;
+            --accent-gradient: linear-gradient(135deg, #b8a0c9, #d4b8d9);
+            --navbar-bg: rgba(255, 255, 255, 0.85);
+            --footer-border: #e0dcd6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #141218;
+            --bg-light: #201d24;
+            --text-primary: #f0edf2;
+            --text-secondary: #b5b0b8;
+            --card-bg: #2a2630;
+            --border-light: rgba(255, 255, 255, 0.06);
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --accent-color: #b8a0c9;
+            --accent-gradient: linear-gradient(135deg, #9b86b0, #c7add4);
+            --navbar-bg: rgba(20, 18, 24, 0.9);
+            --footer-border: #3a3540;
+        }
+
+        /* ====================================================
+           BASE
+           ==================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .text-muted {
+            color: var(--text-secondary) !important;
+        }
+
+        .bg-dark {
+            background-color: var(--bg-color) !important;
+        }
+
+        .bg-light-dark {
+            background-color: var(--bg-light);
+        }
+
+        /* ====================================================
+           REVEAL ANIMATIONS (au scroll)
+           ==================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ====================================================
+           NAVBAR (avec shrink)
+           ==================================================== */
+        .glass-navbar {
+            background: var(--navbar-bg) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .navbar-shrink {
+            padding-top: 0.25rem !important;
+            padding-bottom: 0.25rem !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        /* ====================================================
+           HERO
+           ==================================================== */
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+            margin-top: -76px;
+            padding-top: 76px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            animation: floatGlow 12s ease-in-out infinite alternate;
+        }
+        .glow-orb-1 {
+            background: #a78cbb;
+            top: -10%;
+            left: -5%;
+        }
+        .glow-orb-2 {
+            background: #d4b8d9;
+            bottom: -10%;
+            right: -5%;
+            animation-delay: 4s;
+        }
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, 40px) scale(1.2); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .hero-text {
+            flex: 1 1 400px;
+            text-align: left;
+        }
+
+        .hero-image {
+            flex: 0 0 200px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+        .hero-image img:hover {
+            transform: scale(1.02);
+            border-color: #c7add4;
+        }
+
+        /* Dégradé animé */
+        .text-gradient {
+            background: linear-gradient(135deg, #b8a0c9, #e8b4d8, #b8a0c9);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 6s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .icon-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid var(--border-light);
+            text-decoration: none;
+            color: var(--text-primary);
+            background: transparent;
+        }
+        .icon-btn:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            transform: translateY(-8px) rotate(6deg) scale(1.1);
+            box-shadow: 0 10px 20px rgba(167, 140, 187, 0.25);
+            color: #fff;
+        }
+
+        /* ====================================================
+           SKILLS (barres de progression)
+           ==================================================== */
+        .skill-category {
+            margin-bottom: 2.5rem;
+        }
+        .skill-category h4 {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+        .skill-item .skill-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+        .progress {
+            background: var(--border-light);
+            border-radius: 20px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 20px;
+            background: var(--accent-gradient);
+            width: 0;
+            transition: width 1.2s ease;
+        }
+
+        /* ====================================================
+           PROJECTS
+           ==================================================== */
+        .project-card {
+            background: var(--card-bg) !important;
+            transition: transform 0.15s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+            border: 1px solid var(--border-light) !important;
+            box-shadow: var(--shadow);
+            transform-style: preserve-3d;
+        }
+        .project-card:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        }
+        .project-card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .btn-gradient {
+            background: var(--accent-gradient);
+            border: none;
+            transition: opacity 0.3s ease;
+            color: #fff;
+        }
+        .btn-gradient:hover {
+            opacity: 0.9;
+            color: #fff;
+        }
+
+        /* Tags techniques */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 0.4rem;
+        }
+        .tech-tag {
+            background: #e8e4e0;
+            border: 1px solid #d0ccc6;
+            border-radius: 20px;
+            padding: 0.15rem 0.7rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #2c2a2a;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .tech-tag i {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+        }
+        .tech-tag:hover {
+            border-color: var(--accent-color);
+            background: #f0ede8;
+            transform: translateY(-1px);
+        }
+        [data-theme="dark"] .tech-tag {
+            background: #3d3645;
+            border-color: #5a4f64;
+            color: #f0edf2;
+        }
+        [data-theme="dark"] .tech-tag:hover {
+            background: #4d4457;
+            border-color: var(--accent-color);
+        }
+
+        /* ====================================================
+           CONTACT
+           ==================================================== */
+        .contact-link {
+            text-decoration: none;
+        }
+        .contact-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            padding: 1.8rem;
+            border-radius: 16px;
+            min-width: 180px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        .contact-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+            box-shadow: 0 12px 28px rgba(167, 140, 187, 0.12);
+        }
+        .contact-item i {
+            color: var(--accent-color);
+        }
+
+        /* ====================================================
+           THEME TOGGLE
+           ==================================================== */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0.4rem 0.6rem;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .theme-toggle:hover {
+            color: var(--text-primary);
+            background: var(--border-light);
+        }
+
+        /* ====================================================
+           RTL
+           ==================================================== */
+        html[dir="rtl"] {
+            text-align: right;
+        }
+        html[dir="rtl"] .ms-auto {
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+        html[dir="rtl"] .dropdown-menu-end {
+            right: auto;
+            left: 0;
+        }
+
+        /* ====================================================
+           FOOTER
+           ==================================================== */
+        footer {
+            border-color: var(--footer-border) !important;
+        }
+
+        /* ====================================================
+           FALLBACK GRID (si Bootstrap ne charge pas)
+           ==================================================== */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+        .row { display: flex; flex-wrap: wrap; }
+        .col-lg-8 { flex: 0 0 66.666%; max-width: 66.666%; }
+        .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+        .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+        .text-center { text-align: center; }
+        .justify-content-center { justify-content: center; }
+        .d-flex { display: flex; }
+        .gap-3 { gap: 1rem; }
+        .gap-4 { gap: 1.5rem; }
+        .flex-column { flex-direction: column; }
+        .flex-md-row { flex-direction: row; }
+        .align-items-center { align-items: center; }
+        .mt-auto { margin-top: auto; }
+        .w-100 { width: 100%; }
+        .mb-0 { margin-bottom: 0; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+        .mb-5 { margin-bottom: 3rem; }
+        .py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+        .fs-5 { font-size: 1.25rem; }
+        .fw-bold { font-weight: 700; }
+        .h3 { font-size: 1.75rem; }
+        .display-3 { font-size: 3.2rem; }
+        .display-4 { font-size: 2.4rem; }
+        .shadow-sm { box-shadow: var(--shadow); }
+        .rounded { border-radius: 0.5rem; }
+        .border-0 { border: 0; }
+        .card { background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; }
+        .card-img-top { width: 100%; border-radius: 0.75rem 0.75rem 0 0; }
+        .btn { display: inline-block; padding: 0.6rem 1.2rem; border-radius: 40px; text-align: center; text-decoration: none; }
+        .btn-primary { background: var(--accent-gradient); color: #fff; border: none; }
+        .btn-primary:hover { opacity: 0.9; color: #fff; }
+        .card-body { background: var(--card-bg); border-radius: 0 0 0.75rem 0.75rem; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top glass-navbar" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Syrine</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home" data-i18n="nav_home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav_about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" data-i18n="nav_skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="nav_projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon" id="themeIcon"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr')">Français</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ar')">العربية</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero-section">
+        <!-- Orbes lumineux -->
+        <div class="hero-bg-glow">
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="display-3 fw-bold mb-3" data-i18n="hero_greeting">Hello, I'm</h1>
+                    <h1 class="display-4 fw-bold text-gradient mb-2" data-i18n="hero_name">Syrine BEN ANAYA</h1>
+                    <h2 class="h3 mb-4" data-i18n="hero_title">Software Engineer</h2>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.linkedin.com/in/syrine-ben-anaya-271ab2251/" target="_blank" class="icon-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Syrine-BEN-ANAYA" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
+                        <a href="https://wa.me/96891460168" target="_blank" class="icon-btn"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/img.png" alt="Syrine BEN ANAYA">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 fw-bold reveal" data-i18n="about_title">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center text-muted fs-5 reveal">
+                    <p data-i18n="about_desc">I am a passionate Software Engineer dedicated to building high-quality, scalable, and user-centric applications. With a strong foundation in modern web technologies, I love transforming complex problems into elegant solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS (avec barres de progression) ===== -->
+    <section id="skills" class="py-5 bg-light-dark">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 fw-bold reveal" data-i18n="skills_title">My Skills</h2>
+
+            <!-- Frontend -->
+            <div class="skill-category reveal">
+                <h4><i class="fas fa-code me-2" style="color:var(--accent-color);"></i> Frontend</h4>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-react" style="color:#61DAFB;"></i> React.js</span><span>90%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-html5" style="color:#E34F26;"></i> HTML5 / CSS3</span><span>95%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-js" style="color:#F7DF1E;"></i> JavaScript (ES6+)</span><span>85%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+            </div>
+
+            <!-- Backend -->
+            <div class="skill-category reveal">
+                <h4><i class="fas fa-server me-2" style="color:var(--accent-color);"></i> Backend</h4>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fas fa-crown" style="color:#E0234E;"></i> NestJS</span><span>80%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-node-js" style="color:#68A063;"></i> Node.js / Express</span><span>85%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fas fa-coffee" style="color:#6DB33F;"></i> Spring Boot</span><span>70%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-php" style="color:#777BB4;"></i> PHP</span><span>75%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="skill-category reveal">
+                <h4><i class="fas fa-database me-2" style="color:var(--accent-color);"></i> Databases</h4>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fas fa-database" style="color:#336791;"></i> PostgreSQL</span><span>80%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fas fa-database" style="color:#00618A;"></i> MySQL</span><span>85%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fas fa-leaf" style="color:#4DB33D;"></i> MongoDB</span><span>70%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 70%;"></div></div>
+                </div>
+            </div>
+
+            <!-- DevOps & Tools -->
+            <div class="skill-category reveal">
+                <h4><i class="fas fa-tools me-2" style="color:var(--accent-color);"></i> DevOps & Tools</h4>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-docker" style="color:#2496ED;"></i> Docker</span><span>65%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 65%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-git-alt" style="color:#F05033;"></i> Git / GitHub</span><span>90%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span><i class="fab fa-linux" style="color:#FCC624;"></i> Linux</span><span>70%</span></div>
+                    <div class="progress"><div class="progress-fill" style="width: 70%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 fw-bold reveal" data-i18n="projects_title">My Projects</h2>
+            <div class="row g-4">
+                <!-- Projet 1 -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="card project-card h-100 text-white border-0 shadow">
+                        <img src="assets/meditex.png" class="card-img-top" alt="Muscat Meditex">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title" data-i18n="project_1_title">Muscat Meditex – Uniforms Supplier</h5>
+                            <p class="card-text text-muted" data-i18n="project_1_desc">Bilingual (Arabic/English) showcase website with an admin panel for a professional uniform supplier based in Muscat, Oman.</p>
+                            <div class="tech-stack mt-2 mb-3">
+                                <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                                <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3 + Bootstrap 5.3</span>
+                                <span class="tech-tag"><i class="fab fa-js"></i> Vanilla JS (ES6)</span>
+                                <span class="tech-tag"><i class="fab fa-php"></i> PHP 8+</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> MySQL / MariaDB</span>
+                                <span class="tech-tag"><i class="fas fa-cubes"></i> AOS 2.3</span>
+                                <span class="tech-tag"><i class="fas fa-icons"></i> Bootstrap Icons 1.11</span>
+                                <span class="tech-tag"><i class="fas fa-font"></i> Poppins (EN) / Tajawal (AR)</span>
+                            </div>
+                            <div class="mt-auto">
+                                <a href="https://meditex-app-frontend.vercel.app/" target="_blank" class="btn btn-primary w-100 btn-gradient" data-i18n="btn_demo">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="card project-card h-100 text-white border-0 shadow">
+                        <img src="assets/carwash.png" class="card-img-top" alt="Car Wash Station">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title" data-i18n="project_2_title">Car Wash Station – Auto Services</h5>
+                            <p class="card-text text-muted" data-i18n="project_2_desc">A complete, responsive, SEO-friendly bilingual (Arabic/English) website for a car wash & auto services station in Oman, with a full admin panel and WhatsApp integration.</p>
+                            <div class="tech-stack mt-2 mb-3">
+                                <span class="tech-tag"><i class="fab fa-php"></i> PHP 8+ (no framework)</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> PDO / MySQL</span>
+                                <span class="tech-tag"><i class="fab fa-bootstrap"></i> Bootstrap 5 (RTL + LTR)</span>
+                                <span class="tech-tag"><i class="fab fa-css3-alt"></i> Custom CSS</span>
+                                <span class="tech-tag"><i class="fas fa-icons"></i> Font Awesome</span>
+                                <span class="tech-tag"><i class="fas fa-cubes"></i> AOS scroll animations</span>
+                                <span class="tech-tag"><i class="fab fa-js"></i> Vanilla JavaScript</span>
+                                <span class="tech-tag"><i class="fab fa-whatsapp"></i> WhatsApp Integration</span>
+                            </div>
+                            <div class="mt-auto">
+                                <a href="https://www.carstation.net/" target="_blank" class="btn btn-primary w-100 btn-gradient" data-i18n="btn_demo">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="card project-card h-100 text-white border-0 shadow">
+                        <img src="assets/gravity.png" class="card-img-top" alt="GravityCore">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title" data-i18n="project_3_title">GravityCore – Modular Monolith ERP</h5>
+                            <p class="card-text text-muted" data-i18n="project_3_desc">A modular monolith ERP built with NestJS (Backend) and React+Vite (Frontend), featuring a modern tech stack and scalable architecture.</p>
+                            <div class="tech-stack mt-2 mb-3">
+                                <span class="tech-tag"><i class="fab fa-react"></i> React + Vite</span>
+                                <span class="tech-tag"><i class="fas fa-crown" style="color:#E0234E;"></i> NestJS</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> Neon DB</span>
+                                <span class="tech-tag"><i class="fab fa-js"></i> TypeScript</span>
+                                <span class="tech-tag"><i class="fas fa-cubes"></i> Modular Monolith</span>
+                            </div>
+                            <div class="mt-auto">
+                                <a href="https://gravitycorefrontend.vercel.app/login" target="_blank" class="btn btn-primary w-100 btn-gradient" data-i18n="btn_demo">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4 -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="card project-card h-100 text-white border-0 shadow">
+                        <img src="assets/lush.png" class="card-img-top" alt="Lush Boutique">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title" data-i18n="project_4_title">Lush Boutique – Women's Care Store</h5>
+                            <p class="card-text text-muted" data-i18n="project_4_desc">Online store for women's face care, hair care, and makeup — built with a modern monorepo architecture (pnpm workspaces, Node.js 24, TypeScript 5.9, Express 5, PostgreSQL + Drizzle ORM).</p>
+                            <div class="tech-stack mt-2 mb-3">
+                                <span class="tech-tag"><i class="fas fa-cubes"></i> pnpm workspaces</span>
+                                <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js 24</span>
+                                <span class="tech-tag"><i class="fab fa-js"></i> TypeScript 5.9</span>
+                                <span class="tech-tag"><i class="fas fa-server"></i> Express 5</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL + Drizzle</span>
+                                <span class="tech-tag"><i class="fas fa-check-circle"></i> Zod / drizzle-zod</span>
+                                <span class="tech-tag"><i class="fas fa-code"></i> Orval (OpenAPI)</span>
+                                <span class="tech-tag"><i class="fas fa-cog"></i> esbuild (CJS)</span>
+                            </div>
+                            <div class="mt-auto">
+                                <a href="https://lush-api-server.vercel.app/" target="_blank" class="btn btn-primary w-100 btn-gradient" data-i18n="btn_demo">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 reveal">
+                <a href="https://github.com/Syrine-BEN-ANAYA" target="_blank" class="btn btn-primary btn-lg btn-gradient px-5" data-i18n="view_more_projects">
+                    <i class="fab fa-github me-2"></i> View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="py-5 bg-light-dark">
+        <div class="container py-5 text-center">
+            <h2 class="mb-5 fw-bold reveal" data-i18n="contact_title">Get In Touch</h2>
+            <p class="text-muted mb-4 fs-5 reveal" data-i18n="contact_desc">Feel free to reach out to me for collaborations, opportunities, or just to say hi!</p>
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-4 align-items-center flex-wrap reveal">
+                <a href="mailto:syrinebenanayacontact@gmail.com" class="contact-link">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope fa-2x mb-2"></i>
+                        <h5 data-i18n="contact_email_title">Email</h5>
+                        <p class="text-muted" style="font-size:0.9rem;">syrinebenanayacontact@gmail.com</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/96891460168" target="_blank" class="contact-link">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp fa-2x mb-2"></i>
+                        <h5>WhatsApp</h5>
+                        <p class="text-muted">+968 91460168</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/syrine-ben-anaya-271ab2251/" target="_blank" class="contact-link">
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin fa-2x mb-2"></i>
+                        <h5>LinkedIn</h5>
+                        <p class="text-muted">Syrine BEN ANAYA</p>
+                    </div>
+                </a>
+                <a href="https://github.com/Syrine-BEN-ANAYA" target="_blank" class="contact-link">
+                    <div class="contact-item">
+                        <i class="fab fa-github fa-2x mb-2"></i>
+                        <h5>GitHub</h5>
+                        <p class="text-muted">Syrine-BEN-ANAYA</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-dark text-white text-center py-4 border-top">
+        <p class="mb-0">&copy; <span id="year"></span> Syrine BEN ANAYA. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
+    </footer>
+
+    <!-- ===== BOOTSTRAP JS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // =====================================================
+        // TRADUCTIONS
+        // =====================================================
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                hero_greeting: "Hello, I'm",
+                hero_name: "Syrine BEN ANAYA",
+                hero_title: "Software Engineer",
+                about_title: "About Me",
+                about_desc: "I am a passionate Software Engineer dedicated to building high-quality, scalable, and user-centric applications. With a strong foundation in modern web technologies, I love transforming complex problems into elegant solutions.",
+                skills_title: "My Skills",
+                projects_title: "My Projects",
+                project_1_title: "Muscat Meditex – Uniforms Supplier",
+                project_1_desc: "Bilingual (Arabic/English) showcase website with an admin panel for a professional uniform supplier based in Muscat, Oman.",
+                project_2_title: "Car Wash Station – Auto Services",
+                project_2_desc: "A complete, responsive, SEO-friendly bilingual (Arabic/English) website for a car wash & auto services station in Oman, with a full admin panel and WhatsApp integration.",
+                project_3_title: "GravityCore – Modular Monolith ERP",
+                project_3_desc: "A modular monolith ERP built with NestJS (Backend) and React+Vite (Frontend), featuring a modern tech stack and scalable architecture.",
+                project_4_title: "Lush Boutique – Women's Care Store",
+                project_4_desc: "Online store for women's face care, hair care, and makeup — built with a modern monorepo architecture (pnpm workspaces, Node.js 24, TypeScript 5.9, Express 5, PostgreSQL + Drizzle ORM).",
+                btn_demo: "View Demo",
+                view_more_projects: "View All Projects on GitHub",
+                contact_title: "Get In Touch",
+                contact_desc: "Feel free to reach out to me for collaborations, opportunities, or just to say hi!",
+                contact_email_title: "Email",
+                footer_rights: "All Rights Reserved."
+            },
+            fr: {
+                nav_home: "Accueil",
+                nav_about: "À propos",
+                nav_skills: "Compétences",
+                nav_projects: "Projets",
+                nav_contact: "Contact",
+                hero_greeting: "Bonjour, je suis",
+                hero_name: "Syrine BEN ANAYA",
+                hero_title: "Ingénieure Logiciel",
+                about_title: "À Propos de Moi",
+                about_desc: "Je suis une ingénieure logiciel passionnée, dédiée à la création d'applications de haute qualité, évolutives et centrées sur l'utilisateur. Avec une solide base dans les technologies web modernes, j'aime transformer des problèmes complexes en solutions élégantes.",
+                skills_title: "Mes Compétences",
+                projects_title: "Mes Projets",
+                project_1_title: "Muscat Meditex – Fournisseur d'uniformes",
+                project_1_desc: "Site vitrine bilingue (arabe/anglais) avec panneau d'administration pour un fournisseur d'uniformes professionnels basé à Mascate, Oman.",
+                project_2_title: "Car Wash Station – Services Auto",
+                project_2_desc: "Un site complet, responsive et optimisé SEO, bilingue (arabe/anglais) pour une station de lavage et services auto à Oman, avec un panneau d'administration complet et une intégration WhatsApp.",
+                project_3_title: "GravityCore – ERP Modulaire Monolithique",
+                project_3_desc: "Un ERP modulaire monolithique construit avec NestJS (Backend) et React+Vite (Frontend), offrant une stack technologique moderne et une architecture évolutive.",
+                project_4_title: "Lush Boutique – Boutique Soins Féminins",
+                project_4_desc: "Boutique en ligne pour les soins du visage, des cheveux et du maquillage — construite avec une architecture monorepo moderne (pnpm workspaces, Node.js 24, TypeScript 5.9, Express 5, PostgreSQL + Drizzle ORM).",
+                btn_demo: "Voir la Démo",
+                view_more_projects: "Voir tous les projets sur GitHub",
+                contact_title: "Contactez-Moi",
+                contact_desc: "N'hésitez pas à me contacter pour des collaborations, des opportunités, ou simplement pour dire bonjour !",
+                contact_email_title: "E-mail",
+                footer_rights: "Tous droits réservés."
+            },
+            ar: {
+                nav_home: "الرئيسية",
+                nav_about: "نبذة عني",
+                nav_skills: "المهارات",
+                nav_projects: "المشاريع",
+                nav_contact: "اتصل بي",
+                hero_greeting: "مرحباً، أنا",
+                hero_name: "سيرين بن عناية",
+                hero_title: "مهندسة برمجيات",
+                about_title: "نبذة عني",
+                about_desc: "أنا مهندسة برمجيات شغوفة ومكرسة لبناء تطبيقات عالية الجودة وقابلة للتطوير تركز على المستخدم. بفضل أساسي القوي في تقنيات الويب الحديثة، أحب تحويل المشاكل المعقدة إلى حلول أنيقة.",
+                skills_title: "مهاراتي",
+                projects_title: "مشاريعي",
+                project_1_title: "مسقط ميديتكس – مورد الزي الرسمي",
+                project_1_desc: "موقع عرض ثنائي اللغة (عربي/إنجليزي) مع لوحة تحكم إدارية لمورد أزياء مهنية في مسقط، عُمان.",
+                project_2_title: "محطة غسيل السيارات – خدمات السيارات",
+                project_2_desc: "موقع كامل، متجاوب، ومحسن لمحركات البحث، ثنائي اللغة (عربي/إنجليزي) لمحطة غسيل وخدمات سيارات في عُمان، مع لوحة تحكم إدارية متكاملة وتكامل مع واتساب.",
+                project_3_title: "جاذبية كور – نظام ERP معياري متجانس",
+                project_3_desc: "نظام ERP معياري متجانس مبني باستخدام NestJS (الواجهة الخلفية) و React+Vite (الواجهة الأمامية)، مع تقنيات حديثة وهندسة قابلة للتطوير.",
+                project_4_title: "لوش بوتيك – متجر العناية بالمرأة",
+                project_4_desc: "متجر إلكتروني للعناية بالبشرة والشعر والمكياج — مبني على بنية مونوريبو حديثة (pnpm workspaces، Node.js 24، TypeScript 5.9، Express 5، PostgreSQL + Drizzle ORM).",
+                btn_demo: "عرض حي",
+                view_more_projects: "عرض كل المشاريع على GitHub",
+                contact_title: "ابقى على تواصل",
+                contact_desc: "لا تتردد في التواصل معي للتعاون أو الفرص أو مجرد إلقاء التحية!",
+                contact_email_title: "البريد الإلكتروني",
+                footer_rights: "جميع الحقوق محفوظة."
+            }
+        };
+
+        // =====================================================
+        // CHANGEMENT DE LANGUE
+        // =====================================================
+        function changeLanguage(lang) {
+            localStorage.setItem('portfolioLang', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            const html = document.documentElement;
+            if (lang === 'ar') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', lang);
+            }
+            document.getElementById('currentLang').textContent = {en:'EN',fr:'FR',ar:'عربي'}[lang] || 'EN';
+        }
+
+        // =====================================================
+        // THÈME CLAIR/SOMBRE
+        // =====================================================
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            const icon = document.getElementById('themeIcon');
+            if (theme === 'dark') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const next = current === 'light' ? 'dark' : 'light';
+            setTheme(next);
+        }
+
+        // =====================================================
+        // NAVBAR SHRINK
+        // =====================================================
+        function handleNavbarShrink() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 80) {
+                navbar.classList.add('navbar-shrink');
+            } else {
+                navbar.classList.remove('navbar-shrink');
+            }
+        }
+
+        // =====================================================
+        // INTERSECTION OBSERVER (reveal)
+        // =====================================================
+        function initRevealAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // =====================================================
+        // 3D TILT SUR LES CARTES PROJETS
+        // =====================================================
+        function initCardTilt() {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    card.style.transform = `perspective(1000px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+                });
+            });
+        }
+
+        // =====================================================
+        // INITIALISATION
+        // =====================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Année
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Langue
+            const savedLang = localStorage.getItem('portfolioLang') || 'en';
+            changeLanguage(savedLang);
+
+            // Thème
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+            // Navbar shrink
+            window.addEventListener('scroll', handleNavbarShrink);
+            handleNavbarShrink();
+
+            // Animations au scroll
+            initRevealAnimations();
+
+            // Effet 3D sur les cartes
+            initCardTilt();
+        });
+    </script>
+</body>
+</html>
