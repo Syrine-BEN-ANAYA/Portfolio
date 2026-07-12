@@ -1,46 +1,43 @@
-# Syrine BEN ANAYA — Portfolio
+Syrine BEN ANAYA — Portfolio
+Live Demo: portfolio-syrine-ben-anaya.vercel.app
 
-Site portfolio personnel présentant mon profil de Software Engineer, mes compétences techniques et mes projets récents.
+A responsive, multilingual, single‑page portfolio website that showcases my profile as a Full‑Stack Software Engineer, technical skills, and recent projects. The design features a refined colour palette (purple, mint, orange), clean typography (Fraunces + Inter + JetBrains Mono), and smooth scroll‑triggered animations.
 
-**🔗 Démo en ligne :** [portfolio-syrine-ben-anaya.vercel.app](https://portfolio-syrine-ben-anaya.vercel.app/)
+✨ Features
+🌍 Multilingual – Content is dynamically translated between English, French, and Arabic via data-i18n attributes; right‑to‑left (RTL) layout automatically activates for Arabic.
 
----
+🌗 Dark / Light Mode – Persistent theme preference stored in localStorage with a smooth colour transition.
 
-## ✨ Aperçu
+🎬 Scroll‑Reveal Animations – Sections fade and scale into view using IntersectionObserver (classes reveal / reveal-scale).
 
-Portfolio one-page, responsive et multilingue, conçu pour présenter un profil de développeuse Full-Stack (React, NestJS, PHP, bases de données SQL/NoSQL) avec une identité visuelle soignée : palette violet/menthe/or, typographies Fraunces + Inter + JetBrains Mono, et animations fluides au scroll.
+⌨️ Typewriter Effect – The professional role in the hero section is dynamically typed and cycled.
 
-## 🚀 Fonctionnalités
+🖥️ Animated Code Window – A stylised mini code editor with syntax highlighting and a blinking cursor.
 
-- **🌍 Multilingue (EN / FR / AR)** — traduction dynamique du contenu via `data-i18n`, avec bascule RTL automatique pour l'arabe.
-- **🌗 Mode clair / sombre** — thème persistant (localStorage), transition douce entre les deux palettes.
-- **🎬 Animations au scroll** — apparition progressive des sections via `IntersectionObserver` (`reveal` / `reveal-scale`).
-- **⌨️ Effet "typewriter"** — rôle professionnel qui s'écrit et se réécrit dans le hero.
-- **🖥️ Fenêtre de code animée** — mini éditeur de code stylisé avec coloration syntaxique et curseur clignotant.
-- **🃏 Cartes projets en 3D tilt** — effet de profondeur au survol.
-- **📊 Barres de compétences animées** — remplissage progressif déclenché au scroll.
-- **🔢 Compteurs animés** — statistiques du hero (projets livrés, technologies, langues).
-- **📱 Design entièrement responsive** — adapté mobile / tablette / desktop.
-- **♿ Accessibilité** — respect de `prefers-reduced-motion` pour désactiver les animations si nécessaire.
+🃏 3D Tilt Project Cards – Cards respond to mouse movement with a subtle depth effect.
 
-## 🛠️ Stack technique
+📊 Animated Skill Bars – Progress bars fill when they enter the viewport.
 
-| Catégorie | Technologies |
-|---|---|
-| Structure | HTML5 sémantique |
-| Style | CSS3 (variables CSS, Grid, Flexbox), Bootstrap 5.3.2 |
-| Interactivité | JavaScript vanilla (ES6+) |
-| Icônes | Font Awesome 6.4.2 |
-| Typographies | Google Fonts — Fraunces, Inter, JetBrains Mono |
-| Déploiement | Vercel |
+🔢 Animated Counters – Statistics (projects delivered, technologies, languages) increment on scroll.
 
-> Projet **statique**, sans framework ni étape de build — un seul fichier `index.html` autonome.
+📱 Fully Responsive – Optimised for mobile, tablet, and desktop screens.
 
-## 📁 Structure du projet
+♿ Accessibility – Respects prefers-reduced-motion to disable animations when needed.
 
-```
+🛠️ Tech Stack
+Category	Technologies
+Structure	Semantic HTML5
+Styling	CSS3 (Custom properties, Grid, Flexbox) + Bootstrap 5.3.2
+Interactivity	Vanilla JavaScript (ES6+)
+Icons	Font Awesome 6.4.2
+Fonts	Google Fonts – Fraunces, Inter, JetBrains Mono
+Deployment	Vercel
+Pure static site – no build step, no framework. Everything lives in a single index.html file.
+
+📁 Project Structure
+text
 portfolio-syrine-ben-anaya/
-├── index.html          # Page unique : structure, styles et scripts
+├── index.html          # Single page: HTML, CSS and JavaScript
 └── assets/
     ├── meditex.png
     ├── carwash.png
@@ -48,59 +45,54 @@ portfolio-syrine-ben-anaya/
     ├── lush.png
     ├── cristal.png
     └── zakat.png
-```
+📂 Sections
+Hero – Introduction, animated role, call‑to‑action, social links, key statistics.
 
-## 📂 Sections
+About – Professional bio, education (Engineering degree, Bachelor’s), spoken languages.
 
-1. **Hero** — présentation, rôle animé, CTA, réseaux sociaux, statistiques
-2. **About** — bio, formation (diplôme d'ingénieur, licence), langues parlées
-3. **Skills** — Frontend, Backend, Bases de données, DevOps & Outils
-4. **Projects** — 6 projets mis en avant avec stack technique et lien démo
-5. **Contact** — email, WhatsApp, LinkedIn, GitHub
+Skills – Frontend, Backend, Databases, DevOps & Tools – presented with animated bars and tags.
 
-## 🧩 Projets présentés
+Projects – Six featured projects, each with tech stack and live demo link.
 
-| Projet | Description | Stack |
-|---|---|---|
-| Muscat Meditex | Site vitrine bilingue pour un fournisseur d'uniformes | PHP, MySQL, Bootstrap |
-| Car Wash Station | Site complet avec panneau admin et intégration WhatsApp | PHP, PDO/MySQL |
-| GravityCore | ERP monolithique modulaire | React + Vite, NestJS, Neon DB |
-| Lush Boutique | Boutique e-commerce en monorepo | Express 5, Drizzle ORM, TypeScript |
-| Cristal ERP | ERP microservices (ventes, RH, paie, monitoring) | React 19, NestJS, MongoDB, Docker/K8s |
-| Zakat | Plateforme de gestion et distribution de la Zakat | React, Node.js, MongoDB |
+Contact – Email, WhatsApp, LinkedIn, GitHub.
 
-## ⚙️ Installation locale
-
-```bash
+🧩 Featured Projects
+Project	Description	Stack
+Muscat Meditex	Bilingual showcase website for a uniform supplier	PHP, MySQL, Bootstrap
+Car Wash Station	Full‑featured site with admin panel and WhatsApp integration	PHP, PDO/MySQL
+GravityCore	Modular monolith ERP	React + Vite, NestJS, Neon DB
+Lush Boutique	E‑commerce store in a monorepo	Express 5, Drizzle ORM, TypeScript
+Cristal ERP	Microservices ERP (sales, HR, payroll, monitoring)	React 19, NestJS, MongoDB, Docker/K8s
+Zakat	Zakat management and distribution platform	React, Node.js, MongoDB
+⚙️ Local Setup
+bash
 git clone https://github.com/Syrine-BEN-ANAYA/portfolio.git
 cd portfolio
-```
+No dependencies to install – just open index.html in your browser. For a local server:
 
-Aucune dépendance à installer — ouvrez simplement `index.html` dans un navigateur, ou servez le dossier avec un serveur local :
-
-```bash
+bash
 npx serve .
-```
+☁️ Deployment
+The site is deployed on Vercel as a static website. Every push to the main branch automatically triggers a new deployment.
 
-## ☁️ Déploiement
+🌐 Adding / Modifying a Language
+All text content is centralised in the translations object (en, fr, ar) inside the main script. To add a new language:
 
-Le site est déployé sur **Vercel** en tant que site statique. Chaque push sur la branche principale déclenche un redéploiement automatique.
+Duplicate an existing translation block.
 
-## 🌐 Ajouter / modifier une langue
+Translate each key.
 
-Le contenu textuel est centralisé dans l'objet `translations` (`en`, `fr`, `ar`) du script principal. Pour ajouter une langue :
+Add the corresponding option in the language dropdown (#langDropdown).
 
-1. Dupliquer un bloc de traduction existant.
-2. Traduire chaque clé.
-3. Ajouter l'option correspondante dans le menu déroulant de langue (`#langDropdown`).
+📬 Contact
+Email: syrinebenanayacontact@gmail.com
 
-## 📬 Contact
+WhatsApp: +968 91460168
 
-- **Email :** syrinebenanayacontact@gmail.com
-- **WhatsApp :** +968 91460168
-- **LinkedIn :** [Syrine BEN ANAYA](https://www.linkedin.com/in/syrine-ben-anaya-271ab2251/)
-- **GitHub :** [Syrine-BEN-ANAYA](https://github.com/Syrine-BEN-ANAYA)
+LinkedIn: Syrine BEN ANAYA
 
-## 📄 Licence
+GitHub: Syrine-BEN-ANAYA
 
-© 2026 Syrine BEN ANAYA. Tous droits réservés.
+📄 License
+© 2026 Syrine BEN ANAYA. All rights reserved.
+
