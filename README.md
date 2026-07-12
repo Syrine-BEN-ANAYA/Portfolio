@@ -1,3 +1,26 @@
+# Syrine BEN ANAYA — Portfolio
+
+> **Live Demo:** [portfolio-syrine-ben-anaya.vercel.app](https://portfolio-syrine-ben-anaya.vercel.app/)
+
+A responsive, multilingual, single‑page portfolio website that showcases my profile as a Full‑Stack Software Engineer, technical skills, and recent projects. The design features a refined colour palette (purple, mint, orange), clean typography (Fraunces + Inter + JetBrains Mono), and smooth scroll‑triggered animations.
+
+---
+
+## ✨ Features
+
+- 🌍 **Multilingual** – Content is dynamically translated between **English**, **French**, and **Arabic** via `data-i18n` attributes; right‑to‑left (RTL) layout automatically activates for Arabic.
+- 🌗 **Dark / Light Mode** – Persistent theme preference stored in `localStorage` with a smooth colour transition.
+- 🎬 **Scroll‑Reveal Animations** – Sections fade and scale into view using `IntersectionObserver` (classes `reveal` / `reveal-scale`).
+- ⌨️ **Typewriter Effect** – The professional role in the hero section is dynamically typed and cycled.
+- 🖥️ **Animated Code Window** – A stylised mini code editor with syntax highlighting and a blinking cursor.
+- 🃏 **3D Tilt Project Cards** – Cards respond to mouse movement with a subtle depth effect.
+- 📊 **Animated Skill Bars** – Progress bars fill when they enter the viewport.
+- 🔢 **Animated Counters** – Statistics (projects delivered, technologies, languages) increment on scroll.
+- 📱 **Fully Responsive** – Optimised for mobile, tablet, and desktop screens.
+- ♿ **Accessibility** – Respects `prefers-reduced-motion` to disable animations when needed.
+
+---
+
 ## 🛠️ Tech Stack
 
 <p align="center">
@@ -24,18 +47,22 @@
 </p>
 
 <details>
-<summary><b>📋 Détails techniques</b></summary>
+<summary><b>📋 Detailed Breakdown</b></summary>
 
-| Catégorie | Technologies |
-|-----------|--------------|
-| **Structure** | HTML5 sémantique |
-| **Style** | CSS3 (variables, Grid, Flexbox), Bootstrap 5.3.2 |
-| **Interactivité** | JavaScript vanilla (ES6+) |
+| Category | Technologies |
+|----------|--------------|
+| **Structure** | Semantic HTML5 |
+| **Styling** | CSS3 (Custom properties, Grid, Flexbox) + Bootstrap 5.3.2 |
+| **Interactivity** | Vanilla JavaScript (ES6+) |
 | **Backend & APIs** | PHP, NestJS, Node.js, Express 5 |
-| **Bases de données** | MySQL, MongoDB, PostgreSQL (Neon), Drizzle ORM |
-| **Conteneurisation** | Docker, Kubernetes |
-| **Icônes** | Font Awesome 6.4.2 |
-| **Polices** | Google Fonts (Fraunces, Inter, JetBrains Mono) |
-| **Déploiement** | Vercel |
+| **Databases** | MySQL, MongoDB, PostgreSQL (Neon DB), Drizzle ORM |
+| **Containerisation** | Docker, Kubernetes |
+| **Icons** | Font Awesome 6.4.2 |
+| **Fonts** | Google Fonts – Fraunces, Inter, JetBrains Mono |
+| **Deployment** | Vercel |
 
 </details>
+
+---
+
+## 📁 Project Structure
