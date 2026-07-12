@@ -1210,7 +1210,7 @@
                     </div>
                     <div class="hero-stats reveal visible" style="transition-delay:.48s;">
                         <div>
-                            <div class="hero-stat-num" data-count="5">0</div>
+                            <div class="hero-stat-num" data-count="6">0</div>
                             <div class="hero-stat-label" data-i18n="hero_stat_1">Projects shipped</div>
                         </div>
                         <div>
@@ -1494,7 +1494,7 @@
                     </div>
                 </div>
 
-                <!-- ===== NOUVEAU PROJET 5 : Cristal ERP ===== -->
+                <!-- Projet 5 : Cristal ERP -->
                 <div class="col-lg-3 col-md-6 reveal">
                     <div class="card project-card h-100 text-white border-0 shadow">
                         <img src="assets/cristal.png" class="card-img-top" alt="Cristal ERP">
@@ -1513,6 +1513,29 @@
                             </div>
                             <div class="mt-auto">
                                 <a href="https://erp-ui-kappa.vercel.app/" target="_blank" class="btn btn-primary w-100 btn-gradient" data-i18n="btn_demo">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== NOUVEAU PROJET 6 : Zakat ===== -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="card project-card h-100 text-white border-0 shadow">
+                        <img src="assets/zakat.png" class="card-img-top" alt="Zakat">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title" data-i18n="project_6_title">Zakat – Smart Management Platform</h5>
+                            <p class="card-text text-muted" data-i18n="project_6_desc">A comprehensive platform to calculate, track, and distribute Zakat efficiently. Features include donation tracking, beneficiary management, and detailed reporting.</p>
+                            <div class="tech-stack mt-2 mb-3">
+                                <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                                <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                                <span class="tech-tag"><i class="fas fa-server"></i> Express</span>
+                                <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
+                                <span class="tech-tag"><i class="fab fa-js"></i> TypeScript</span>
+                                <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
+                                <span class="tech-tag"><i class="fas fa-chart-pie"></i> Analytics</span>
+                            </div>
+                            <div class="mt-auto">
+                                <a href="https://zakat-navy.vercel.app/" target="_blank" class="btn btn-primary w-100 btn-gradient" data-i18n="btn_demo">View Demo</a>
                             </div>
                         </div>
                     </div>
@@ -1578,7 +1601,7 @@
     <!-- ===== SCRIPTS ===== -->
     <script>
         // =====================================================
-        // TRADUCTIONS (ajout du projet 5)
+        // TRADUCTIONS (ajout du projet 6 : Zakat)
         // =====================================================
         const translations = {
             en: {
@@ -1602,12 +1625,10 @@
                 about_title: "About Me",
                 about_desc: "I am a passionate Software Engineer dedicated to building high-quality, scalable, and user-centric applications. With a strong foundation in modern web technologies, I love transforming complex problems into elegant solutions.",
                 about_education_title: "Education",
-                // Engineering Degree
                 about_degree_eng_title: "Engineering Degree",
                 about_degree_eng_inst: "Ecole Polytechnique de Sousse",
                 about_degree_eng_year: "2026",
                 about_degree_eng_badge: "Software Engineering",
-                // Bachelor Degree
                 about_degree_bachelor_title: "Bachelor's Degree in English",
                 about_degree_bachelor_inst: "Faculty of Arts and Human Sciences Sousse",
                 about_degree_bachelor_year: "2014",
@@ -1626,9 +1647,11 @@
                 project_3_desc: "A modular monolith ERP built with NestJS (Backend) and React+Vite (Frontend), featuring a modern tech stack and scalable architecture.",
                 project_4_title: "Lush Boutique – Women's Care Store",
                 project_4_desc: "Online store for women's face care, hair care, and makeup — built with a modern monorepo architecture (pnpm workspaces, Node.js 24, TypeScript 5.9, Express 5, PostgreSQL + Drizzle ORM).",
-                // Nouveau projet 5
                 project_5_title: "Cristal ERP – Modular Microservices ERP",
                 project_5_desc: "Enterprise management system built on microservices architecture covering sales, purchases, inventory, HR, payroll, monitoring, and workflow automation.",
+                // Nouveau projet 6 : Zakat
+                project_6_title: "Zakat – Smart Management Platform",
+                project_6_desc: "A comprehensive platform to calculate, track, and distribute Zakat efficiently. Features include donation tracking, beneficiary management, and detailed reporting.",
                 btn_demo: "View Demo",
                 view_more_projects: "View All Projects on GitHub",
                 contact_title: "Get In Touch",
@@ -1657,12 +1680,10 @@
                 about_title: "À Propos de Moi",
                 about_desc: "Je suis une ingénieure logiciel passionnée, dédiée à la création d'applications de haute qualité, évolutives et centrées sur l'utilisateur. Avec une solide base dans les technologies web modernes, j'aime transformer des problèmes complexes en solutions élégantes.",
                 about_education_title: "Formation",
-                // Engineering Degree
                 about_degree_eng_title: "Diplôme d'Ingénieur",
                 about_degree_eng_inst: "Ecole Polytechnique de Sousse",
                 about_degree_eng_year: "2026",
                 about_degree_eng_badge: "Génie Logiciel",
-                // Bachelor Degree
                 about_degree_bachelor_title: "Licence en Anglais",
                 about_degree_bachelor_inst: "Faculté des Arts et Sciences Humaines de Sousse",
                 about_degree_bachelor_year: "2014",
@@ -1681,9 +1702,11 @@
                 project_3_desc: "Un ERP modulaire monolithique construit avec NestJS (Backend) et React+Vite (Frontend), offrant une stack technologique moderne et une architecture évolutive.",
                 project_4_title: "Lush Boutique – Boutique Soins Féminins",
                 project_4_desc: "Boutique en ligne pour les soins du visage, des cheveux et du maquillage — construite avec une architecture monorepo moderne (pnpm workspaces, Node.js 24, TypeScript 5.9, Express 5, PostgreSQL + Drizzle ORM).",
-                // Nouveau projet 5
                 project_5_title: "Cristal ERP – ERP Modulaire en Microservices",
                 project_5_desc: "Système de gestion d'entreprise construit sur une architecture microservices couvrant les ventes, achats, stock, RH, paie, supervision et automatisation des flux.",
+                // Nouveau projet 6 : Zakat
+                project_6_title: "Zakat – Plateforme de Gestion Intelligente",
+                project_6_desc: "Une plateforme complète pour calculer, suivre et distribuer la Zakat efficacement. Fonctionnalités : suivi des dons, gestion des bénéficiaires et rapports détaillés.",
                 btn_demo: "Voir la Démo",
                 view_more_projects: "Voir tous les projets sur GitHub",
                 contact_title: "Contactez-Moi",
@@ -1712,12 +1735,10 @@
                 about_title: "نبذة عني",
                 about_desc: "أنا مهندسة برمجيات شغوفة ومكرسة لبناء تطبيقات عالية الجودة وقابلة للتطوير تركز على المستخدم. بفضل أساسي القوي في تقنيات الويب الحديثة، أحب تحويل المشاكل المعقدة إلى حلول أنيقة.",
                 about_education_title: "التعليم",
-                // Engineering Degree
                 about_degree_eng_title: "شهادة مهندس",
                 about_degree_eng_inst: "المدرسة المتعددة التقنيات بسوسة",
                 about_degree_eng_year: "٢٠٢٦",
                 about_degree_eng_badge: "هندسة البرمجيات",
-                // Bachelor Degree
                 about_degree_bachelor_title: "بكالوريوس في اللغة الإنجليزية",
                 about_degree_bachelor_inst: "كلية الآداب والعلوم الإنسانية بسوسة",
                 about_degree_bachelor_year: "٢٠١٤",
@@ -1736,9 +1757,11 @@
                 project_3_desc: "نظام ERP معياري متجانس مبني باستخدام NestJS (الواجهة الخلفية) و React+Vite (الواجهة الأمامية)، مع تقنيات حديثة وهندسة قابلة للتطوير.",
                 project_4_title: "لوش بوتيك – متجر العناية بالمرأة",
                 project_4_desc: "متجر إلكتروني للعناية بالبشرة والشعر والمكياج — مبني على بنية مونوريبو حديثة (pnpm workspaces، Node.js 24، TypeScript 5.9، Express 5، PostgreSQL + Drizzle ORM).",
-                // Nouveau projet 5
                 project_5_title: "كريستال ERP – نظام ERP معياري بالخدمات المصغرة",
                 project_5_desc: "نظام إدارة مؤسسات مبني على بنية الخدمات المصغرة، يشمل المبيعات، المشتريات، المخزون، الموارد البشرية، الرواتب، المراقبة وأتمتة سير العمل.",
+                // Nouveau projet 6 : Zakat
+                project_6_title: "زكات – منصة إدارة ذكية",
+                project_6_desc: "منصة شاملة لحساب وتتبع وتوزيع الزكاة بكفاءة. تشمل الميزات تتبع التبرعات وإدارة المستفيدين وتقارير مفصلة.",
                 btn_demo: "عرض حي",
                 view_more_projects: "عرض كل المشاريع على GitHub",
                 contact_title: "ابقى على تواصل",
@@ -1905,7 +1928,7 @@
         }
 
         // =====================================================
-        // COUNT-UP STATS (mis à jour à 5 projets)
+        // COUNT-UP STATS (mis à jour : 6 projets)
         // =====================================================
         function initCountUp() {
             const nums = document.querySelectorAll('.hero-stat-num');
