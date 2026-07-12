@@ -1,5 +1,5 @@
 markdown
-# Syrine BEN ANAYA — Portfolio
+#   Portfolio
 
 > **Live Demo:** [portfolio-syrine-ben-anaya.vercel.app](https://portfolio-syrine-ben-anaya.vercel.app/)
 
