@@ -440,11 +440,21 @@
         .mail-label { font-size: .9rem; color: var(--muted); }
         .mail {
             display: inline-block; font-family: var(--font-d); font-weight: 700; font-size: clamp(1.1rem, 3.8vw, 2.6rem);
-            letter-spacing: -.03em; line-height: 1.15; overflow-wrap: anywhere; margin: .3rem 0 2.4rem; direction: ltr;
+            letter-spacing: -.03em; line-height: 1.15; overflow-wrap: anywhere; margin: .3rem 0 1.8rem; direction: ltr;
             background: linear-gradient(var(--a1), var(--a1)) no-repeat 0 100% / 0 .09em; transition: background-size .7s var(--ease), color .3s;
             padding-bottom: .1em;
         }
         .mail:hover { background-size: 100% .09em; color: var(--a1); }
+
+        .phone {
+            display: inline-flex; align-items: center; gap: .7rem; font-family: var(--font-d); font-weight: 700;
+            font-size: clamp(1.1rem, 3.8vw, 2.6rem); letter-spacing: -.02em; line-height: 1.15; direction: ltr; unicode-bidi: isolate;
+            margin: .3rem 0 2.4rem; padding-bottom: .1em;
+            background: linear-gradient(var(--a1), var(--a1)) no-repeat 0 100% / 0 .09em; transition: background-size .7s var(--ease), color .3s;
+        }
+        .phone i { color: #25D366; font-size: .9em; }
+        .phone:hover { background-size: 100% .09em; color: var(--a1); }
+
         .link-row { display: flex; flex-wrap: wrap; gap: .8rem; }
         .link-row .btn i { font-size: 1.1rem; }
 
@@ -725,8 +735,13 @@
             <div class="wrap">
                 <h2 class="sec-title" data-reveal><span class="line"><span data-i18n="contact_title">Get In Touch</span></span></h2>
                 <p class="lead" data-i18n="contact_desc">Feel free to reach out to me for collaborations, opportunities, or just to say hi!</p>
+
                 <span class="mail-label" data-i18n="contact_email_title">Email</span><br>
-                <a class="mail" href="mailto:syrinebenanayacontact@gmail.com" data-cursor>syrinebenanayacontact@gmail.com</a>
+                <a class="mail" href="mailto:syrinebenanayacontact@gmail.com" data-cursor>syrinebenanayacontact@gmail.com</a><br>
+
+                <span class="mail-label" data-i18n="contact_whatsapp_title">WhatsApp</span><br>
+                <a class="phone" href="https://wa.me/96891460168" target="_blank" rel="noopener noreferrer" data-cursor aria-label="WhatsApp +968 9146 0168"><i class="fab fa-whatsapp"></i> +968 91460168</a>
+
                 <div class="link-row">
                     <a class="btn btn-line" data-mag href="https://wa.me/96891460168" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     <a class="btn btn-line" data-mag href="https://www.linkedin.com/in/syrine-ben-anaya-271ab2251/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -783,7 +798,7 @@
                 project_7_tag_1: "Qur'an", project_7_tag_2: "Hifz Planning", project_7_tag_3: "Revision", project_7_tag_4: "Responsive",
                 btn_demo: "View Demo", view_more_projects: "View All Projects on GitHub",
                 contact_title: "Get In Touch", contact_desc: "Feel free to reach out to me for collaborations, opportunities, or just to say hi!",
-                contact_email_title: "Email", footer_rights: "All Rights Reserved.", footer_top: "Back to top"
+                contact_email_title: "Email", contact_whatsapp_title: "WhatsApp", footer_rights: "All Rights Reserved.", footer_top: "Back to top"
             },
             fr: {
                 nav_home: "Accueil", nav_about: "À propos", nav_skills: "Compétences", nav_projects: "Projets", nav_contact: "Contact",
@@ -807,7 +822,7 @@
                 project_7_tag_1: "Coran", project_7_tag_2: "Planification Hifz", project_7_tag_3: "Révision", project_7_tag_4: "Responsive",
                 btn_demo: "Voir la Démo", view_more_projects: "Voir tous les projets sur GitHub",
                 contact_title: "Contactez-Moi", contact_desc: "N'hésitez pas à me contacter pour des collaborations, des opportunités, ou simplement pour dire bonjour !",
-                contact_email_title: "E-mail", footer_rights: "Tous droits réservés.", footer_top: "Haut de page"
+                contact_email_title: "E-mail", contact_whatsapp_title: "WhatsApp", footer_rights: "Tous droits réservés.", footer_top: "Haut de page"
             },
             ar: {
                 nav_home: "الرئيسية", nav_about: "نبذة عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_contact: "اتصل بي",
@@ -831,7 +846,7 @@
                 project_7_tag_1: "القرآن", project_7_tag_2: "تخطيط الحفظ", project_7_tag_3: "المراجعة", project_7_tag_4: "متجاوب",
                 btn_demo: "عرض حي", view_more_projects: "عرض كل المشاريع على GitHub",
                 contact_title: "ابقى على تواصل", contact_desc: "لا تتردد في التواصل معي للتعاون أو الفرص أو مجرد إلقاء التحية!",
-                contact_email_title: "البريد الإلكتروني", footer_rights: "جميع الحقوق محفوظة.", footer_top: "إلى الأعلى"
+                contact_email_title: "البريد الإلكتروني", contact_whatsapp_title: "واتساب", footer_rights: "جميع الحقوق محفوظة.", footer_top: "إلى الأعلى"
             }
         };
 
