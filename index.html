@@ -61,20 +61,31 @@
             --grain-o: .07;
         }
         [data-theme="light"] {
-            --bg: #f6f0e4;
-            --bg2: #ece3cf;
-            --card: #fffaf1;
-            --text: #141a45;
-            --muted: #4b5082;
-            --line: rgba(20, 26, 69, .16);
-            --glass: rgba(255, 250, 241, .72);
-            --a1: #c8430f;
-            --a2: #c2185b;
-            --a3: #0b8f7a;
+            /* Soft ivory: calm neutrals, dusty rose accent, a hint of sage */
+            --bg: #f8f5f2;
+            --bg2: #efeae5;
+            --card: #fffdfb;
+            --text: #2b2530;
+            --muted: #6c6571;
+            --line: rgba(43, 37, 48, .13);
+            --glass: rgba(255, 253, 251, .78);
+            --a1: #96506a;
+            --a2: #c9939f;
+            --a3: #5c8580;
             --on-a1: #ffffff;
-            --aurora-o: .5;
-            --grain-o: .09;
+            --aurora-o: .14;
+            --grain-o: .04;
         }
+        /* Light mode refinements: quieter, more editorial */
+        [data-theme="light"] .blob { background: conic-gradient(from 20deg, #c9939f, #dccbc0, #a8bcb6, #c9939f); opacity: .7; }
+        [data-theme="light"] .bio { background: linear-gradient(135deg, var(--card), color-mix(in srgb, var(--card) 88%, var(--a2))); }
+        [data-theme="light"] .project { box-shadow: 0 -16px 50px rgba(60, 40, 55, .07); }
+        [data-theme="light"] .chip { box-shadow: 0 8px 22px rgba(60, 40, 55, .1); }
+        [data-theme="light"] .chip.c1, [data-theme="light"] .chip.c2, [data-theme="light"] .chip.c3 { color: var(--a1); }
+        [data-theme="light"] .sk-name i { filter: saturate(.55); opacity: .9; }
+        [data-theme="light"] .p-media { background: linear-gradient(135deg, var(--a2), #d8c3b5); }
+        [data-theme="light"] .track span::after { background: var(--a2); }
+        [data-theme="light"] .phone i { color: #4f8f6a; }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 90px; -webkit-text-size-adjust: 100%; font-size: 90%; }
@@ -904,7 +915,7 @@
             try { localStorage.setItem('theme2', t); } catch (e) {}
             $('#themeIcon').className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
             var m = document.querySelector('meta[name="theme-color"]');
-            if (m) m.setAttribute('content', t === 'dark' ? '#0d1130' : '#f6f0e4');
+            if (m) m.setAttribute('content', t === 'dark' ? '#0d1130' : '#f8f5f2');
         }
         function toggleTheme(ev) {
             var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
