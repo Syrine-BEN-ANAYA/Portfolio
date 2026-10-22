@@ -432,25 +432,27 @@
 
         .more { margin-top: 3.4rem; display: flex; justify-content: center; }
 
-      <!-- ===== CONTACT ===== -->
-<section id="contact" class="sec contact">
-    <div class="wrap">
-        <h2 class="sec-title" data-reveal><span class="line"><span data-i18n="contact_title">Get In Touch</span></span></h2>
-        <p class="lead" data-i18n="contact_desc">Feel free to reach out to me for collaborations, opportunities, or just to say hi!</p>
+        /* ====================================================
+           CONTACT
+           ==================================================== */
+        .contact { text-align: start; }
+        .contact .lead { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.3rem); max-width: 46ch; margin-bottom: 2.4rem; }
+        .mail-label { font-size: .9rem; color: var(--muted); }
+        .mail {
+            display: inline-block; font-family: var(--font-d); font-weight: 700; font-size: clamp(1.1rem, 3.8vw, 2.6rem);
+            letter-spacing: -.03em; line-height: 1.15; overflow-wrap: anywhere; margin: .3rem 0 2.4rem; direction: ltr;
+            background: linear-gradient(var(--a1), var(--a1)) no-repeat 0 100% / 0 .09em; transition: background-size .7s var(--ease), color .3s;
+            padding-bottom: .1em;
+        }
+        .mail:hover { background-size: 100% .09em; color: var(--a1); }
+        .link-row { display: flex; flex-wrap: wrap; gap: .8rem; }
+        .link-row .btn i { font-size: 1.1rem; }
 
-        <span class="mail-label" data-i18n="contact_email_title">Email</span><br>
-        <a class="mail" href="mailto:syrinebenanayacontact@gmail.com" data-cursor>syrinebenanayacontact@gmail.com</a>
-
-        <span class="mail-label" data-i18n="contact_whatsapp_title">WhatsApp</span><br>
-        <a class="mail" href="https://wa.me/96891460168" target="_blank" rel="noopener noreferrer" data-cursor>+968 91460168</a>
-
-        <div class="link-row">
-            <a class="btn btn-line" data-mag href="https://wa.me/96891460168" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a class="btn btn-line" data-mag href="https://www.linkedin.com/in/syrine-ben-anaya-271ab2251/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a class="btn btn-line" data-mag href="https://github.com/Syrine-BEN-ANAYA" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-    </div>
-</section>
+        footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding-block: 1.8rem; }
+        footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; font-size: .9rem; color: var(--muted); }
+        .totop { display: inline-flex; align-items: center; gap: .5rem; color: var(--text); font-weight: 600; }
+        .totop:hover i { transform: translateY(-4px); }
+        .totop i { transition: transform .4s var(--ease); }
 
         /* ====================================================
            THEME VIEW TRANSITION
@@ -761,7 +763,6 @@
         var T = {
             en: {
                 nav_home: "Home", nav_about: "About", nav_skills: "Skills", nav_projects: "Projects", nav_contact: "Contact",
-                contact_email_title: "Email", contact_whatsapp_title: "WhatsApp",
                 hero_status: "Available for opportunities", hero_location: "Muscat, Oman",
                 hero_greeting: "Hi, I'm", hero_name: "Syrine",
                 hero_pitch: "I design and build fast, scalable web applications end to end — from React interfaces to NestJS & PHP backends, deployed with care. I like turning complex problems into clean, working software.",
@@ -787,7 +788,6 @@
             fr: {
                 nav_home: "Accueil", nav_about: "À propos", nav_skills: "Compétences", nav_projects: "Projets", nav_contact: "Contact",
                 hero_status: "Ouverte aux opportunités", hero_location: "Mascate, Oman",
-                contact_email_title: "E-mail", contact_whatsapp_title: "WhatsApp",
                 hero_greeting: "Bonjour, je suis", hero_name: "Syrine",
                 hero_pitch: "Je conçois et développe des applications web rapides et évolutives de bout en bout — des interfaces React aux back-ends NestJS & PHP, déployées avec soin. J'aime transformer des problèmes complexes en logiciels propres et fonctionnels.",
                 hero_cta_projects: "Voir mes projets", hero_cta_contact: "Discutons",
@@ -811,7 +811,6 @@
             },
             ar: {
                 nav_home: "الرئيسية", nav_about: "نبذة عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_contact: "اتصل بي",
-                contact_email_title: "البريد الإلكتروني", contact_whatsapp_title: "واتساب",
                 hero_status: "متاحة للفرص الوظيفية", hero_location: "مسقط، عُمان",
                 hero_greeting: "مرحباً، أنا", hero_name: "سيرين",
                 hero_pitch: "أصمم وأبني تطبيقات ويب سريعة وقابلة للتطوير من الألف إلى الياء — من واجهات React إلى خوادم NestJS و PHP، مع نشر دقيق. أحب تحويل المشاكل المعقدة إلى برمجيات نظيفة وفعالة.",
